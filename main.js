@@ -50,6 +50,15 @@ const character = new Character(5, 8);
 const treasureObj = new Treasure(1, 1);
 treasureObj.setRandomPosition();
 
+//first time loading
+playerDown.addEventListener('load', () => {
+    drawPlayer(playerDown);
+});
+//first time loading
+treasure.addEventListener('load', () => {
+    drawTreasure();
+});
+
 function drawGrid() {
     // 10*10 grid ond 500*500canvas
     //-> grid sqare ->50*50
@@ -78,11 +87,6 @@ function drawPlayer(player) {
     let x = character.col;
     let y = character.row;
 
-    //first time loading
-    playerDown.addEventListener('load', () => {
-        context.drawImage(playerDown, (x - 1) * 50, (y - 1) * 50, 50, 50);
-    });
-
     //updating
     context.drawImage(player, (x - 1) * 50, (y - 1) * 50, 50, 50);
 }
@@ -90,11 +94,6 @@ function drawPlayer(player) {
 function drawTreasure() {
     let x = treasureObj.col;
     let y = treasureObj.row;
-
-    //first time loading
-    treasure.addEventListener('load', () => {
-        context.drawImage(treasure, (x - 1) * 50, (y - 1) * 50, 50, 50);
-    });
 
     //updating
     context.drawImage(treasure, (x - 1) * 50, (y - 1) * 50, 50, 50);
